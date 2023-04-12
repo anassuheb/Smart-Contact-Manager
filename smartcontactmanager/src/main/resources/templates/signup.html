@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>this is home page</title>
+</head>
+
+<body>
+
+
+	<section class="vh-100" style="background-color: #eee;">
+		<div class="container h-60">
+			<div class="row d-flex justify-content-center align-items-center h-60">
+				<div class="col-md-8 offset-md-2 mt-3">
+					<div class="card text-black" style="border-radius: 10px;">
+						<div class="card-body p-md-5">
+							
+						
+							
+							<div class="row justify-content-center">
+								<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+									<form th:action="@{/do_register}" method="post" th:object="${user}">
+
+										<div class="d-flex flex-row align-items-center ">
+											<i class="fas fa-user fa-lg me-3 fa-fw"></i>
+											<div class="form-group">
+												<label for="name_field">Your Name</label>
+												<input name="name" type="text" class="form-control" id="name_field"
+													aria-describedby="emailHelp" placeholder="Enter Your Name"
+													th:value="${user.name}" required />
+											</div>
+										</div>
+
+										<div class="d-flex flex-row align-items-center ">
+											<i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+											<div class="form-group">
+												<label for="email_field">Email</label>
+												<input name="email" type="email" class="form-control" id="email_field"
+													aria-describedby="emailHelp" placeholder="Enter Your Email"
+													th:value="${user.email}" />
+											</div>
+										</div>
+
+										<div class="d-flex flex-row align-items-center ">
+											<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+											<div class="form-group">
+												<label for="password_field">Password</label>
+												<input name="password" type="password" class="form-control"
+													id="password_field" aria-describedby="emailHelp"
+													placeholder="Enter Your Password" required />
+											</div>
+										</div>
+
+										<div class="form-group">
+
+											<textarea name="about" placeholder="Enter About Yourself"
+												th:value="${user.about}" rows="10" class="form-control"></textarea>
+
+										</div>
+
+										<div class="form-group form-check ">
+
+											<input type="checkbox" name="agreement" class="form-check-input"
+												id="agreement" />
+											<label for="agreement">Accept T&C</label>
+
+										</div>
+
+
+
+										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+											<button type="submit" class="btn bg-primary">Register</button>
+
+
+										</div>
+
+									</form>
+
+								</div>
+								<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+									<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+										class="img-fluid" alt="Sample image">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+
+</html>
